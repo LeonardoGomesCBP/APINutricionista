@@ -16,6 +16,11 @@ import lombok.Data;
 @Entity(name = "nutricionista")
 @Table(name = "nutricionista")
 public class Nutricionista implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2158393938278208608L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
