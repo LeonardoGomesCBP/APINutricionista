@@ -20,15 +20,15 @@ public class CadastroNutricionista {
 	
 	private static final Logger LOG = Logger.getLogger(CadastroNutricionista.class);
 
-	 public void cadastro(NutricionistaResource nutricionistaResource) {
+	 public void cadastro(NutricionistaResource nutricionistaResource) throws NutricionistaResourceException {
 
 		    try {
 		      Nutricionista nutricionista = service.conversor(nutricionistaResource);
 		      nutricionistaRepository.saveAndFlush(nutricionista);
 		    } catch (NutricionistaResourceException e) {
-		      LOG.error("Erro ao salvar o nutricionista: " + e.getMessage(), e);
-		    }
+		    	 throw new NutricionistaResourceException(
+		   	          "Falha ao converter o resource para entidade, resouce: " + nutricionistaResource);
 		  }
 	
-
+	 }
 }

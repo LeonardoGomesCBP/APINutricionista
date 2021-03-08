@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.leonardo.nutricao.exception.NutricionistaNotFoundException;
+import com.leonardo.nutricao.exception.NutricionistaResourceException;
 import com.leonardo.nutricao.model.Nutricionista;
 import com.leonardo.nutricao.resourcemodel.NutricionistaResource;
 import com.leonardo.nutricao.service.BuscarNutriPorIDServiceImpl;
@@ -47,7 +48,7 @@ public class NutricionistaController {
   }
 
   @PostMapping(path = "/nutricionista/criar")
-  public void salvarNutricionista(@RequestBody  @Valid NutricionistaResource nutricionista) {
+  public void salvarNutricionista(@RequestBody  @Valid NutricionistaResource nutricionista) throws NutricionistaResourceException {
     serviceCadastro.cadastro(nutricionista);
   }
 
