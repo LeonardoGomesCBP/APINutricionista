@@ -15,12 +15,12 @@ public class BuscarNutricionistaServiceImpl {
 	@Autowired
 	private NutricionistaRepository nutricionistaRepository;
 	
+		  public List<Nutricionista> buscarTodosOsNutricionistas() {
+		    List<Nutricionista> listNutricionista = nutricionistaRepository.findAll();
+		    return listNutricionista;
+		  }
+
 	
-	private static final Logger LOG = Logger.getLogger(BuscarNutricionistaServiceImpl.class);
-	public List<Nutricionista> buscarAllNutricionistas() {
-		LOG.info("teste");
-		List<Nutricionista> listNutricionista = nutricionistaRepository.findAll();
-		return listNutricionista;
-	}
+	
 	
 }
